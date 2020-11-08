@@ -9,20 +9,17 @@ class Movies extends Component {
     fontFamily: "",
   };
 
-  renderTags() {
-    if (this.state.movies.length) return "There are no movies";
-
-    return;
-  }
   deleteMovie(movie) {
     let movieIndex = this.state.movies.indexOf(movie);
     this.state.movies.splice(movieIndex, 1);
     this.setState({ movies: this.state.movies });
   }
   render() {
+    if (!this.state.movies.length)
+      return <div className="container m-4">There are no movies!</div>;
+
     return (
-      <div className="container">
-        {/* {this.state.tags.length === 0 && "Please create a new tag!"} */}
+      <div className="container m-4">
         <p>Showing {this.state.movies.length} movies in the database</p>
         <table className="table">
           <thead>
