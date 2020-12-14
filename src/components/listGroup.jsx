@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 
 const ListGroup = (props) => {
   const { items, selectedItem, textProperty, valueProperty } = props;
-  return (  
+
+  return (
     <ul className="list-group">
       {items.map((item) => (
         <li
+          onClick={() =>  props.onItemSelect(item)}
           key={item[valueProperty]}
           className={
-            item[textProperty] !== selectedItem
-              ? "list-group-item"
-              : "list-group-item active"
+            item[textProperty] === selectedItem
+              ? "list-group-item active"
+              : "list-group-item"
           }
-          onClick={() => props.onItemSelect(item[textProperty])}
         >
           {item[textProperty]}
         </li>
