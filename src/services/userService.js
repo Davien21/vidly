@@ -1,10 +1,9 @@
 import httpService from "./httpService";
-import { apiUrl } from "../config.json";
 
-const apiEndpoint = `${apiUrl}/users`;
+const apiEndpoint = `/users`;
 
 // const userUrl = (id) => {
-//   return `${apiUrl}/users/${id}`;
+//   return `/users/${id}`;
 // };
 
 export function register(user) {
